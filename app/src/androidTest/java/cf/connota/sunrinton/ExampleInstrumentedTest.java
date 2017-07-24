@@ -1,4 +1,4 @@
-package cf.conota.sunrinton;
+package cf.connota.sunrinton;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

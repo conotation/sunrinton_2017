@@ -1,4 +1,4 @@
-package cf.conota.sunrinton;
+package cf.connota.sunrinton;
 
 import org.junit.Test;
 
