@@ -19,6 +19,7 @@ public class TOOHardWorkManger implements TextToSpeech.OnInitListener {
     private Vibrator vibrator;
     private Ringtone ringtone;
     private String v = "";
+    public boolean run = false;
 
     public TOOHardWorkManger(Context context) {
         this.context = context;
@@ -48,6 +49,7 @@ public class TOOHardWorkManger implements TextToSpeech.OnInitListener {
     }
 
     public void stopAlr() {
+        run =false;
         vibrator.cancel();
         ringtone.stop();
     }

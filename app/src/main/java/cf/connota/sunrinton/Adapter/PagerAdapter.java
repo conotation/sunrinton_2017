@@ -12,7 +12,7 @@ import cf.connota.sunrinton.Fragment.FriendsFragment;
  */
 
 public class PagerAdapter  extends FragmentStatePagerAdapter {
-    int _numOfTabs;
+    private int _numOfTabs;
 
     public PagerAdapter(FragmentManager fm, int numOfTabs) {
         super(fm);
@@ -24,7 +24,7 @@ public class PagerAdapter  extends FragmentStatePagerAdapter {
 
         switch (position) {
             case 0:
-                FriendsFragment tab1 = new FriendsFragment(); // Fragment 는 알아서 만들자
+                FriendsFragment tab1 = new FriendsFragment();
                 return tab1;
             case 1:
                 ExtraInfoFragment tab2 = new ExtraInfoFragment();

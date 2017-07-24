@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">1LLITNEYO</string>
     <string name="facebook_app_id">262627810904922</string>
+    <string name="active">활성화</string>
+    <string name="inactive">비활성화</string>
 </resources>
 

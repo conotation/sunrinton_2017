@@ -3,6 +3,7 @@ package cf.connota.sunrinton.Activity;
 import android.databinding.DataBindingUtil;
 import android.hardware.Camera;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
@@ -26,21 +27,47 @@ public class ResponsePlz extends AppCompatActivity {
         binding.v1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                blankFlash();
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        while (true)
+                            blankFlash();
+                    }
+                }).start();
+
             }
         });
 
         binding.v2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                worker.ringAlr();
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        while (worker.run) {
+                            try {
+                                SystemClock.sleep(1000);
+                                worker.ringAlr();
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+                }).start();
             }
         });
 
         binding.v3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                worker.ringVib();
+                worker.run = true;
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        while (true)
+                            worker.ringVib();
+                    }
+                }).start();
             }
         });
 
@@ -54,7 +81,18 @@ public class ResponsePlz extends AppCompatActivity {
         binding.v5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                worker.talk(binding.edt.getText().toString());
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        while (true) {
+                            try {
+                                worker.talk(binding.edt.getText().toString());
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+                }).start();
             }
         });
 

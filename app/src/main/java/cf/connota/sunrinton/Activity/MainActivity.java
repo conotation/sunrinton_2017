@@ -22,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
         binding.mainTabBar.addTab(binding.mainTabBar.newTab().setText("추가정보"));
         binding.mainTabBar.setTabGravity(TabLayout.GRAVITY_CENTER);
 
-
         final PagerAdapter adapter = new PagerAdapter
                 (getSupportFragmentManager(), binding.mainTabBar.getTabCount());
         binding.mainViewPager.setAdapter(adapter);
@@ -45,11 +44,9 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
     }
-
 
 }

@@ -1,44 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginLeft="6dp"
-    android:orientation="horizontal"
-    android:paddingBottom="6dp"
-    android:paddingTop="6dp">
+<layout>
 
-    <cf.connota.sunrinton.View.RectHeightLayout
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:background="#00ff00"
-        android:minHeight="48dp">
+    <data>
 
-    </cf.connota.sunrinton.View.RectHeightLayout>
+        <variable
+            name="content"
+            type="cf.connota.sunrinton.Model.User" />
+    </data>
 
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="4dp"
-        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/item_nickname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="박지수 죽어라"
-            android:textColor="#fff"
-            android:textSize="16dp" />
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/container_box"
+        android:clickable="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="6dp"
+        android:orientation="horizontal"
+        android:paddingBottom="6dp"
+        android:paddingTop="6dp">
 
-        <TextView
-            android:id="@+id/isActivate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="[object: Object]"
-            android:textColor="#f00"
-            android:textSize="20dp" />
+        <cf.connota.sunrinton.View.RectHeightLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/rounded_square"
+            android:minHeight="48dp">
 
+            <ImageView
+                android:id="@+id/item_profile"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </cf.connota.sunrinton.View.RectHeightLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="4dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/item_nickname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="박지수 죽어라"
+                android:textColor="#fff"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/isActivate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="[object: Object]"
+                android:textColor="#f00"
+                android:textSize="16dp" />
+
+
+        </LinearLayout>
 
     </LinearLayout>
-
-</LinearLayout>
+</layout>
