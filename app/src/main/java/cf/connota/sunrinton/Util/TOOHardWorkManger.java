@@ -1,4 +1,4 @@
-package cf.connota.sunrinton;
+package cf.connota.sunrinton.Util;
 
 import android.content.Context;
 import android.media.AudioManager;

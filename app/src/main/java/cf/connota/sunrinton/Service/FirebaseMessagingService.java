@@ -1,4 +1,4 @@
-package cf.connota.sunrinton;
+package cf.connota.sunrinton.Service;
 
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -10,6 +10,9 @@ import android.util.Log;
 
 import com.google.firebase.messaging.RemoteMessage;
 
+import cf.connota.sunrinton.R;
+import cf.connota.sunrinton.Activity.ResponsePlz;
+
 /**
  * Created by Conota on 2017-07-24.
  */
@@ -17,7 +20,7 @@ import com.google.firebase.messaging.RemoteMessage;
 public class FirebaseMessagingService extends com.google.firebase.messaging.FirebaseMessagingService {
 
     private static final String TAG = "FirebaseMsgService";
-
+    public static final String INTENT_FILTER = "INTENT_FILTER";
     private String msg;
 
     /**
@@ -52,24 +55,28 @@ public class FirebaseMessagingService extends com.google.firebase.messaging.Fire
             Log.d(TAG, "Message Notification Body: " + remoteMessage.getNotification().getBody());
         }
 
-        msg = remoteMessage.getNotification().getBody();
+        msg = remoteMessage.getData().get("title    ");
 
         // Also if you intend on generating your own notifications as a result of a received FCM
         // message, here is where that should be initiated. See sendNotification method below.
 
         // [END receive_message]
 
-        Intent intent = new Intent(this, MainActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//        Log.e(TAG, "onMessageReceived: ");
+//        Intent x = new Intent(INTENT_FILTER);
+//        sendBroadcast(x);
 
+        Intent intent = new Intent(this, ResponsePlz.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        this.startActivity(intent);
+        Log.e(TAG, "onMessageReceived: 실행 언제될꺼냐");
+
+        showNoti();
+    }
+
+    public void showNoti() {
         PendingIntent contentIntent = PendingIntent.getActivity(this, 0,
                 new Intent(this, ResponsePlz.class), 0);
-
-        try {
-            contentIntent.send();
-        } catch (PendingIntent.CanceledException e) {
-            e.printStackTrace();
-        }
 
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this).setSmallIcon(R.mipmap.ic_launcher)
                 .setContentTitle("FCM")
@@ -82,7 +89,6 @@ public class FirebaseMessagingService extends com.google.firebase.messaging.Fire
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
         notificationManager.notify(0 /* ID of notification */, mBuilder.build());
-
 
         mBuilder.setContentIntent(contentIntent);
     }

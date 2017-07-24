@@ -1,4 +1,4 @@
-package cf.connota.sunrinton;
+package cf.connota.sunrinton.Activity;
 
 import android.databinding.DataBindingUtil;
 import android.hardware.Camera;
@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import cf.connota.sunrinton.R;
+import cf.connota.sunrinton.Util.TOOHardWorkManger;
 import cf.connota.sunrinton.databinding.ActivityResponsePlzBinding;
 
 public class ResponsePlz extends AppCompatActivity {

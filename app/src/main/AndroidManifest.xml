@@ -8,7 +8,6 @@
 
     <uses-feature android:name="android.hardware.camera" />
 
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -16,10 +15,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
 
-        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
-
-        <activity android:name=".MainActivity">
+        <activity android:name=".Activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,19 +27,20 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".FirebaseMessagingService">
+        <service android:name=".Service.FirebaseMessagingService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-        <service android:name=".FirebaseInstanceIDService">
+        <service android:name=".Service.FirebaseInstanceIDService">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
 
-        <activity android:name=".ResponsePlz"></activity>
+        <activity android:name=".Activity.ResponsePlz" />
 
+        <activity android:name=".Activity.SplashActivity" />
     </application>
 
 </manifest>
